@@ -17,31 +17,36 @@ def printMap():
 
 # Обработка хода крестиков
 def xTurn():
-    global turn
-    print("Ход крестика.")
-    x = int(input("Введите поле по горизонтали: "))
-    y = int(input("Введите поле по вертикали: "))
-    if MAP[x][y] == '-':
-        MAP[x][y] = "x"
-    else:
-        print("Поле занято!")
-    printMap()
-    turn = not turn
+    try:
+        global turn
+        print("Ход крестика.")
+        x = int(input("Введите поле по горизонтали: "))
+        y = int(input("Введите поле по вертикали: "))
+        if MAP[x][y] == '-':
+            MAP[x][y] = "x"
+        else:
+            print("Поле занято!")
+        printMap()
+        turn = not turn
+    except IndexError:
+        print("За границей!")
 
 
 # Обработка хода ноликов
 def oTurn():
-    global turn
-    print("Ход нолика.")
-    x = int(input("Введите поле по горизонтали: "))
-    y = int(input("Введите поле по вертикали: "))
-    if MAP[x][y] == "-":
-        MAP[x][y] = "o"
-    else:
-        print("Поле занято!")
-    printMap()
-    turn = not turn
-
+    try:
+        global turn
+        print("Ход нолика.")
+        x = int(input("Введите поле по горизонтали: "))
+        y = int(input("Введите поле по вертикали: "))
+        if MAP[x][y] == "-":
+            MAP[x][y] = "o"
+        else:
+            print("Поле занято!")
+        printMap()
+        turn = not turn
+    except IndexError:
+        print("За границей!")
 
 # Функция запуска
 def run():
